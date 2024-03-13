@@ -2,9 +2,9 @@ function Queue() {
     this.list = [];
 }
 
-/**
- * Adds the node given to the queue according to its distance attribute in a descending order.
- * @param {Node} node Node to be added to the queue.
+/*
+    Agrega el nodo dado a la cola según su atributo de distancia en orden descendente.
+    @param {Node} node Nodo que se agregará a la cola.
  */
 Queue.prototype.enqueue = function (node) {
     if (this.list.length == 0) {
@@ -29,9 +29,7 @@ Queue.prototype.enqueue = function (node) {
     }
 }
 
-/**
- * Removes and returns the first element in the queue.
- */
+//Elimina y devuelve el primer elemento en la cola.
 Queue.prototype.dequeue = function () {
     return this.list.splice(0, 1)[0];
 }

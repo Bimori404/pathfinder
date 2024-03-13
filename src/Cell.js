@@ -15,10 +15,11 @@ const searchColor = '#34b7eb';
 const foundColor = '#043a8a';
 const revealColor = '#cccc16';
 
-/**
- * Sets the type attribute. Also updates the background color of the cell.
- * @param {*} type 
- */
+/*
+    Establece el atributo "tipo".
+    También actualiza el color de fondo de la celda.
+    @param {*} type
+*/
 Cell.prototype.setType = function (type) {
     if ((type != 'start' && type != 'finish') || (type == 'start' && !Maze.startCount) || (type == 'finish' && !Maze.finishCount)) {
         if (this.type == 'start')
@@ -44,17 +45,17 @@ Cell.prototype.setType = function (type) {
     }
 }
 
-/**
- * Sets the animate attribute. Also updates the background color of the cell.
- * @param {*} animate 
+/*
+    Establece el atributo de animación. También actualiza el color de fondo de la celda.
+    @param {*} animate
  */
 Cell.prototype.setAnimate = function (animate) {
     this.animate = animate;
     this.updateColor();
 }
 
-/**
- * Updates the background color of the cell according to its type and animate attributes.
+/*
+    Actualiza el color de fondo de la celda según sus atributos de tipo y animación.
  */
 Cell.prototype.updateColor = function () {
     if (this.type == 'wall') {

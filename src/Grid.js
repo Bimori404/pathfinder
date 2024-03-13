@@ -8,9 +8,7 @@ function Grid() {
     this.checkpointCount = 0;
 }
 
-/**
- * Creates and appends grid cells to the page.
- */
+// Crea y agrega celdas de cuadrícula a la página.
 Grid.prototype.init = function () {
     this.parent = document.getElementById('grid');
     for (i = 0; i < this.row; i++) {
@@ -27,9 +25,7 @@ Grid.prototype.init = function () {
     this.cells = this.createCells();
 }
 
-/**
- * Creates cell objects according to the row and column sizes.
- */
+// Crea objetos de celda según los tamaños de fila y columna.
 Grid.prototype.createCells = function () {
     var cells = [];
     for (var i = 0; i < this.row; i++) {
@@ -41,10 +37,10 @@ Grid.prototype.createCells = function () {
     return cells;
 }
 
-/**
- * Sets the animate attribute of all cells to 'empty'.
- * @param {*} onlyAnimate 
- */
+/*
+    Establece el atributo "animate" de todas las celdas a 'empty'.
+    @param {*} onlyAnimate
+*/
 Grid.prototype.clear = function (onlyAnimate) {
     for (var i = 0; i < this.row; i++) {
         for (var j = 0; j < this.col; j++) {
@@ -55,9 +51,7 @@ Grid.prototype.clear = function (onlyAnimate) {
     }
 }
 
-/**
- * Calls the solve function of the selected pathfinding algorithm.
- */
+// Llama a la función de resolver del algoritmo de búsqueda de ruta seleccionado.
 Grid.prototype.solve = function () {
     if (this.startCount == 0)
         alert("There must be a start point.");
@@ -86,9 +80,7 @@ Grid.prototype.solve = function () {
     }
 }
 
-/**
- * Creates a random maze on the grid.
- */
+// Crea un laberinto aleatorio en la cuadrícula.
 Grid.prototype.createMaze = async function () {
     for (var i = 0; i < this.row; i++) {
         for (var j = 0; j < this.col; j++) {
@@ -125,18 +117,19 @@ Grid.prototype.createMaze = async function () {
     this.cells[this.row - 1][this.col - 1].setType('finish');
 }
 
-/**
- * Checks if a cell is in the maze. Used to prevent "Out Of Bounds" errors.
- * @param {*} row 
- * @param {*} col 
- */
+/*
+    Comprueba si una celda está en el laberinto.
+    Se utiliza para evitar errores de "fuera de límites".
+    @param {*} row
+    @param {*} col
+*/
 Grid.prototype.isInMaze = function (row, col) {
     return row >= 0 && row < this.row && col >= 0 && col < this.col;
 }
 
-/**
- * Updates the checkpoint texts. When a checkpoint is deleted, added or updated other checkpoints might change.
- * @param {*} start 
+/*
+    Actualiza los textos de los puntos de control. Cuando se elimina, añade o actualiza un punto de control, otros puntos de control podrían cambiar.
+    @param {*} start
  */
 Grid.prototype.updateCheckpoints = function (start) {
     for (var i = 0; i < this.row; i++) {
