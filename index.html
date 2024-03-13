@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <title>Pathfinder</title>
+</head>
+
+
+<body onload="Maze.init()">
+    <link rel="stylesheet" href="style.css">
+
+    <header>
+        <fieldset style="margin-top: 28%; padding-bottom: 77%;">
+            <!--  -->
+            <fieldset>
+                <legend>Algoritmo</legend>
+                <select id="algorithm-menu">
+                    <option value="a*" selected>A*</option>
+                </select>
+            </fieldset>
+            <!--  -->
+            <fieldset>
+                <legend>Acciones del laberinto</legend>
+                <button type="button" onclick="Maze.solve();">Comenzar busqueda</button>
+                <button type="button" onclick="Maze.createMaze();">Generar laberinto</button>
+                <button type="button" onclick="Maze.clear(false);">Limpiar pantalla</button>
+            </fieldset>
+            <!--  -->
+            <fieldset>
+                <legend>Opciones de construccion</legend>
+                <ul><input type="radio" id="empty" name="rad" checked>No hacer nada</input></ul>
+                <ul><input type="radio" id="wall" name="rad">Crear muros</input></ul>
+                <ul><input type="radio" id="start" name="rad">Donde comenzar</input></ul>
+                <ul><input type="radio" id="finish" name="rad">Donde treminar</input></ul>
+            </fieldset>
+            <!--  -->
+        </fieldset>
+
+    </header>
+    <div id="grid-container">
+        <div id="grid">
+            <!-- aca se generan las celdas del laberinto -->
+        </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------- -->
+    <div style="display: none;">
+        <input type="checkbox" id="diagonal" style="display: none;"></input>
+        <input type="range" id="speed" min="0" max="100" value="50" style="display: none;"></input>
+    </div>
+    <!-- ----------------------------------------------------------------- -->
+
+    <script src="src/algorithms/Algorithm.js"></script>
+    <script src="src/algorithms/Astar.js"></script>
+    <script src="src/Node.js"></script>
+    <script src="src/Queue.js"></script>
+    <script src="src/Grid.js"></script>
+    <script src="src/Cell.js"></script>
+    <script src="src/Mouse.js"></script>
+
+</body>
+
+</html>
